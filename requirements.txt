@@ -1,0 +1,54 @@
+Requisitos Previos
+Python 3.12+
+Django 5.x
+SQLite3 (Base de datos por defecto)
+
+Instalación y Configuración
+Crear un entorno virtual e instalar dependencias:
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+Realizar migraciones y cargar datos iniciales:
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+Ejecutar el servidor local:
+python3 manage.py runserver
+
+
+Endpoints Disponibles
+1. Enriquecimiento de Transacciones
+	POST /api/enrich/
+	Request Body:
+	
+{
+  "transactions": [
+    {
+      "id": "1",
+      "description": "PYU *UberEats",
+      "amount": -300.00,
+      "date": "2023-12-01"
+    }
+  ]
+}
+
+2. CRUD Categorías
+GET /api/categories/
+POST /api/categories/
+PUT /api/categories/{id}/
+DELETE /api/categories/{id}/
+
+
+3. CRUD Comercios
+POST /api/merchants/
+
+4. CRUD Keywords
+POST /api/keywords/
+GET /api/keywords/
+
+5. Listar Transacciones
+GET /api/transactions/
+
+Pruebas Unitarias 
+python3 manage.py test
